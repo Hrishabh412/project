@@ -47,9 +47,6 @@ def rename_dir():
 	new_dir=ask_name()
 	os.system('mv '+source_dir+' '+new_dir)
 
-
-#main part
-
 with sr.Microphone() as source:
 	r.adjust_for_ambient_noise(source)
 	os.system("espeak -v female3 'Hello Sir'")
@@ -68,6 +65,7 @@ try:
        #file handling
 
 	if "file handling" in final_txt:
+		
 		with sr.Microphone() as source:
 			r.adjust_for_ambient_noise(source)
 			os.system("espeak -v female3 'which operation want to perform'")
@@ -97,6 +95,7 @@ try:
 	#directory handling
 
 	elif "directory handling" in final_txt:
+		
 		with sr.Microphone() as source:
 			r.adjust_for_ambient_noise(source)
 			os.system("espeak -v female3 'which operation want to perform on directory'")
@@ -145,8 +144,6 @@ try:
 		except Exception as e:
 			print (e)
 	
-\
-
 
 	else:
 		
