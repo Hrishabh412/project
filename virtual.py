@@ -8,8 +8,6 @@ import time
 import pyautogui
 
 #pyautogui for controlling mouse and keyboard through gesture
-
-
 pyautogui.FAILSAFE = False
 SCREEN_X, SCREEN_Y = pyautogui.size()
 CLICK = CLICK_MESSAGE = MOVEMENT_START = None
@@ -22,10 +20,10 @@ while cap.isOpened():
     CAMERA_X, CAMERA_Y, channels = img.shape
 
     img = cv2.flip(img, 1)
-
     # cropping the captured image
     crop_img = img
-	# greayshad window
+
+    # greayshad window
     grey = cv2.cvtColor(crop_img, cv2.COLOR_BGR2GRAY)
     value = (35, 35)
     blurred = cv2.GaussianBlur(grey, value, 0)
@@ -52,8 +50,6 @@ while cap.isOpened():
 
 # to construct a convex hull of given coordinates
     hull = cv2.convexHull(cnt, returnPoints=False)
-
-		
     defects = cv2.convexityDefects(cnt, hull)
     count_defects = 0
     cv2.drawContours(thresh1, contours, -1, (0, 255, 0), 3)
@@ -65,7 +61,7 @@ while cap.isOpened():
         end = tuple(cnt[e][0])
         far = tuple(cnt[f][0])
 
-	# importing math library using maths function
+# importing math library using maths function
         a = math.sqrt((end[0] - start[0]) ** 2 + (end[1] - start[1]) ** 2)
         b = math.sqrt((far[0] - start[0]) ** 2 + (far[1] - start[1]) ** 2)
         c = math.sqrt((end[0] - far[0]) ** 2 + (end[1] - far[1]) ** 2)
